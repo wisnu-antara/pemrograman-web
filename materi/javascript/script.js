@@ -1,13 +1,26 @@
 (function () {
 "use strict";
-var my_function = function (event){
-    alert("halo mahasiswa primakara");
-    event.preventdefault();
+document.addEventListener("DCMContentLoaded", function (){
+ var state = document.getElementById("s-state");
 
-};
+ document
+ .getElementById("cart-hplus");
+ .addEventListener("submit", estimateTotal);
 
-var form = document.getElementById("cart-hplus");
+ var btnEstimate = document.getElementById("btn-estimate");
+ btnEstimate.disabled = true;
 
-form.addEventListener("submit", my_function, true);
-
+ state.addEventListener("change", function () {
+     if(state.value === ""){
+         btnEstimate.disabled = true;
+     }else{
+         btnEstimate.disabled = false;
+     }
+ });
+    function estimateTotal(event){
+        event.preventDefault();
+        alert("testing");
+        
+    }
+});
 }) ();
